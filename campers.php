@@ -18,7 +18,11 @@ Template Name: Campers
 					foreach ($siteUsers as $usr) { ?>			
 							<div class="camper_info">	 			
 								<div class="camper_avatar"><a href="<?php echo get_author_posts_url($usr->ID); ?>"><?php echo get_avatar($usr->ID, 100); ?></a></div>
-								<div class="camper_name"><a href="<?php echo get_author_posts_url($usr->ID); ?>"><?php echo $usr->display_name;  ?></a></div>
+								<div class="camper_name"><a href="<?php echo get_author_posts_url($usr->ID); ?>">
+		<?php echo get_the_author_meta('first_name', $usr->ID); ?> <?php echo get_the_author_meta('last_name', $usr->ID); ?>
+</a></div> 
+
+
 								<div class="camper_posts"><a href="<?php echo get_author_posts_url($usr->ID); ?>">Posts (<?php echo get_usernumposts($usr->ID); ?>)</a></div>
 							</div>	 
 					<?php } ?>

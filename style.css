@@ -82,19 +82,25 @@ img#ccl { border: none; }
 
 /* Campers page template */
 
-	.campers_title {
-		padding-bottom: 1em;
-	}
-	
 	.camper_info {
 		float: left; 
+		display: inline; 
 		padding: 0 12px 15px 0;
-		width: 23%; 
+		width: 140px; 
+		height: 160px; 
+	}
+	
+	.camper_info a:link {
+	text-decoration: none !important;
 	}
 	
 	.camper_avatar {
 		/* border: 1px solid #B39061; */
 		overflow: hidden;
+	}
+	
+	.campers_title {
+	padding-bottom: 1em;
 	}
 	
 	.camper_name, .camper_posts {
@@ -105,3 +111,27 @@ img#ccl { border: none; }
 	.entry_post { 
 		list-style-type: none; 
 	}
+
+/* One-column page template */
+
+.one-column #content, .one-column #content p {
+margin: 25px; 
+width: 90%; 
+}
+
+/* Twitter items */
+
+li .twitter-item {
+display: block;
+float: left; 
+list-style: none;
+margin-top: 1em;
+margin-left: -.25em;
+margin-bottom: .5em;
+}
+
+li .twitter-item img {
+float: left;
+margin-right: .5em;
+margin-top: .5em; 
+}

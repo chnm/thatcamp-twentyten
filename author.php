@@ -26,9 +26,15 @@ $lastname = strtolower($current_camper->last_name);
 
 ?>
 
+
 <div id="author-0" class="post-103 post type-post hentry category-general clearfix page author nodate">
 
-<h1><?php echo $current_camper->first_name;if(!empty($current_camper->last_name)) echo ' '; echo $current_camper->last_name; ?></h1>
+<h1><?php echo $current_camper->first_name;if(!empty($current_camper->last_name)) echo ' '; echo $current_camper->last_name; ?>
+			<?php if(empty($current_camper->first_name)): ?>
+			<?php echo $current_camper->display_name; ?>
+			<?php endif; ?>
+</h1>
+
 
     <?php if (@$_GET['dev'] == 1) print_r($current_camper); ?>
 
@@ -36,11 +42,11 @@ $lastname = strtolower($current_camper->last_name);
 
     <?php echo get_avatar( $current_camper->user_email, $size = '150'); ?>&nbsp;&nbsp;	
 		<ul id="author-info">
-		    <?php if ( $title = $current_camper->title ): ?>
-			<li class="title"><?php echo $current_camper->title; ?></li>
+		    <?php if ( $title = $current_camper->user_title ): ?>
+			<li class="title"><?php echo $current_camper->user_title; ?></li>
 			<?php endif; ?>
-			<?php if ($institution = $current_camper->institution): ?>
-			<li class="institution"><?php echo $current_camper->institution; ?></li>
+			<?php if ($institution = $current_camper->user_organization): ?>
+			<li class="institution"><?php echo $current_camper->user_organization; ?></li>
 			<?php endif; ?>
 			<?php
 			// Checks to see if the user_url isn't empty and if its length is greater than 7 (so as not to write http:// only links) 
@@ -48,8 +54,8 @@ $lastname = strtolower($current_camper->last_name);
 			<li>Website: <a href="<?php echo $current_camper->user_url; ?>" class="url"><?php echo str_replace("http://","",$current_camper->user_url); ?></a></li>
 			<?php endif; ?>
 			
-			<?php if(!empty($current_camper->twitter_username)): ?>
-			<li>Twitter: <a href="http://twitter.com/<?php echo $current_camper->twitter_username; ?>/"><?php echo $current_camper->twitter_username; ?></a></li>
+			<?php if(!empty($current_camper->user_twitter)): ?>
+			<li>Twitter: <a href="http://twitter.com/<?php echo $current_camper->user_twitter; ?>/"><?php echo $current_camper->user_twitter; ?></a></li>
 			<?php endif; ?>
 		</ul>
 		
